@@ -1,0 +1,85 @@
+Following are the steps to configure static web site with  the help of s3, cloudfront, and namecheap domain.
+
+-----------------------------------------------------------------------------------------------------------
+first phase:
+step 1:
+go to aws ceritficate manager<acm>
+step 2: configure a request  certificate manager in aws
+step 3:
+configure domain names-
+fully qualified domain names < jasimakhtar.cloud>
+add another domain
+It could be anything before dot <*.jasimakhtar.cloud>
+step 4:
+go to ceritifcate id and attach cname name and cname value to advance dns option in namecheap domain.
+
+----------------------------------------------------------------------------------------------------------
+second phase:
+configure namecheap domain.
+step 1:
+go to account and click domain list
+you can see your domain and then click on manage button  for configuration
+step 2: 
+configure advanced dns for default nameserver namecheap basicdns<under advanced dns option>
+type <cname record> host <cname name of acm  exluding domain name> and value < cname value includes all part> ttl < 1 min>
+step 3:
+configure custom dns  and add nameserver of route 53(It has by default four nameservers) <under domain option>
+
+third phase:
+-----------------------------------------------------------------------------------------------
+step1: 
+configure s3 bucket for static website deployment
+give a unique name to s3 bucket <jasimakhar.cloud>
+upload html and css file to s3 bucket
+step2:
+go to edit static website hosting <under property option>
+enable <static website hosting>
+hosting type <host a static website>
+index document <index.html>
+save changes.
+step 3:
+create another s3 empty bucket for rediration request for an object
+give a unigue name to s3 bucket <www.jasimakhtar.cloud>
+go to edit static website hosting <under property option>
+hosting type < redirect request for an object>
+hostname <jasimakhtar.cloud>
+save changes.
+-------------------------------------------------------------------------------------
+fourth phase:
+ step 1:
+configure a cloudfront distribution < cdn | delivery of web content>
+origin domain <jasimakhtar.cloud.s3.eu-north-1.amazonaws.com>
+step 2:
+create new oai < origin access identity >  to access s3 bucket <jasimakhtar.cloud.s3.eu-north-1.amazonaws.com>
+step 3:
+add alternate domain name(cname) < jasimakhtar.cloud>
+step 4:
+configure custom ssl certificate < jasimakhtar.cloud(xyz)>
+step 5 most important step:
+go to distribution id 
+go to origin option and create origin 
+origin domain < http://jasimakhtar.cloud.s3-website.eu-north-1.amazonaws.com | bucket website endpoint > 
+---------------------------------------------------------------------------------------------------------
+final phase:
+step 1:
+configure router 53
+create hosted zones 
+configure record a for ipv4 and aaaa for ipv6 and route traffic alias
+choose endpoint < alias to cloudfront distribution>
+choose region < region>
+end!
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
