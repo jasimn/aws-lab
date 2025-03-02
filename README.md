@@ -5,7 +5,11 @@
   - upload or add css, html,js,images,etc files to the repository for your static web site
   - click on setting
   - click on pages
-  - 
+  - ![Screenshot 2025-03-03 022023](https://github.com/user-attachments/assets/db833a32-d952-41bc-91bd-fb8d6c8d63e0)
+  - select branch <main > and save
+  - now you web page is live at <url>
+  -
+
 - **step 1:**
   - go to domain list 
   - click on manage button
