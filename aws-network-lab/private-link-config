@@ -1,0 +1,16 @@
+how to configure private to access third party service securly.
+create two vpc(vpc-consumer and vpc-provider)
+create two subnets for each vpc(private-subnet and public-subnet| )
+create route table( consumer-route-table-private and public | provider route-table-private and public )
+create two instances for each vpc(one is in public subnet and another is in private subnet)
+create internat gateway for each public subnet  to access internet
+create nat gateway for each private nat to access internat through public subnet\
+create nat gateway for provider private instances  only for donwload and configure apache webserver(after configuration delete nat gateway for provider private instance)
+create target group(logical group of instancess)
+create loadbalancer for preconfigured target group<network loadbalancer type>
+create vpc endpoint service on provider vpc (private connectivity) for provider vpc service
+create vpc endpoint on consumer vpc (private connectivity) for the gateway fo private ec2 instance
+we need to attach endpoint service name to vpc endpoint
+in vpc endpoint service go to <endpoint connection> | select vpc endpoint and go to <action> then accept endpoint connection request
+end!
+
