@@ -1,0 +1,6 @@
+how to create vpc interface endpoint and access sqs 
+1. create a vpc and public and private subnets 
+2. launch ec2 instance in both the subnets 
+3. create interface endpoint for sqs service in private subnet
+4. login to private ec2 and access sqs(PutMessage)
+using inteface endpoint
