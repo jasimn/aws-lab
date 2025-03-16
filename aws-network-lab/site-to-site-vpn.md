@@ -91,8 +91,7 @@ By Chetan Agrawal
 Open the downloaded VPN server configuration file and follow the instructions. The instructions should include the following steps:
 
 Open /etc/sysctl.conf and ensure the following values:
-```bash
-Copy
+ ```bash
   net.ipv4.ip_forward = 1
   net.ipv4.conf.default.rp_filter = 0
   net.ipv4.conf.default.accept_source_route = 0
