@@ -88,3 +88,73 @@ By Chetan Agrawal
 - Install Libreswan:
   ```bash
   sudo yum install libreswan
+Open the downloaded VPN server configuration file and follow the instructions. The instructions should include the following steps:
+
+Open /etc/sysctl.conf and ensure the following values:
+
+bash
+Copy
+net.ipv4.ip_forward = 1
+net.ipv4.conf.default.rp_filter = 0
+net.ipv4.conf.default.accept_source_route = 0
+Apply the changes:
+
+bash
+Copy
+sysctl -p
+Open /etc/ipsec.conf and ensure the following line is uncommented:
+
+bash
+Copy
+#include /etc/ipsec.d/*.conf
+Create a new file at /etc/ipsec.d/aws.conf (if it doesn't exist) and append the following configuration:
+
+bash
+Copy
+conn Tunnel1
+  authby=secret
+  auto=start
+  left=%defaultroute
+  leftid=<Public IP of EC2-VPN>
+  right=<AWS VPN Public IP>
+  type=tunnel
+  ikelifetime=8h
+  keylife=1h
+  phase2alg=aes256-sha1;modp2048
+  ike=aes256-sha1;modp2048
+  keyingtries=%forever
+  keyexchange=ike
+  leftsubnet=192.168.0.0/16
+  rightsubnet=10.0.0.0/16
+  dpddelay=10
+  dpdtimeout=30
+  dpdaction=restart_by_peer
+  encapsulation=yes
+Create a new file at /etc/ipsec.d/aws.secrets (if it doesn't exist) and append the following line:
+
+bash
+Copy
+<Public IP of EC2-VPN> <AWS VPN Public IP>: PSK "<Pre-Shared Key>"
+Start the IPsec service:
+
+bash
+Copy
+sudo systemctl start ipsec.service
+Check the status of the IPsec service:
+
+bash
+Copy
+sudo systemctl status ipsec.service
+7. Test Connectivity
+Ping the private IP of EC2-A from EC2-VPN:
+
+bash
+Copy
+ping 10.0.0.x
+Example output:
+
+bash
+Copy
+PING 10.0.0.167 (10.0.0.167) 56(84) bytes of data.
+64 bytes from 10.0.0.167: icmp_seq=1 ttl=127 time=187 ms
+64 bytes from 10.0.0.167: icmp_seq=2 ttl=127 time=186 ms
