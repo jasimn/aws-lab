@@ -17,8 +17,7 @@ Run the below commands from your workstation where you have AWS CLI installed (f
 5.Generate the server certificate and key
    ```bash
     ./easyrsa build-server-full server nopassmarkdown
-# Create Server and Client Certificates and Keys
-
+# Create Server and Client Certificates and Key
 6.Generate the client certificate and key
    ```bash
     ./easyrsa build-client-full client1.domain.idi nopass  
