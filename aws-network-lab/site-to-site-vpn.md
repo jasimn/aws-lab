@@ -88,7 +88,7 @@ By Chetan Agrawal
 - Install Libreswan:
   ```bash
    sudo yum install libreswan
-6. ###Open the downloaded VPN server configuration file and follow the instructions. The instructions should include the following steps:
+###Ope7.n the downloaded VPN server configuration file and follow the instructions. The instructions should include the following steps:
 - Open /etc/sysctl.conf and ensure the following values:
    ```bash
     net.ipv4.ip_forward = 1
@@ -97,34 +97,35 @@ By Chetan Agrawal
 - Apply the changes:
   ```bash
    sysctl -p
-Open /etc/ipsec.conf and ensure the following line is uncommented:
+###8.Open /etc/ipsec.conf and ensure the following line is uncommented:
+- go to /etc/ipsec.conf
+   ```bash
+    vim /etc/ipsec.conf
+- make sure this line is uncommented:
+  ```bash
+   #include /etc/ipsec.d/*.conf
+###9.Create a new file at /etc/ipsec.d/aws.conf (if it doesn't exist) and append the following configuration:
+ ```bash
 
-bash
-Copy
-#include /etc/ipsec.d/*.conf
-Create a new file at /etc/ipsec.d/aws.conf (if it doesn't exist) and append the following configuration:
-
-bash
-Copy
-conn Tunnel1
-  authby=secret
-  auto=start
-  left=%defaultroute
-  leftid=<Public IP of EC2-VPN>
-  right=<AWS VPN Public IP>
-  type=tunnel
-  ikelifetime=8h
-  keylife=1h
-  phase2alg=aes256-sha1;modp2048
-  ike=aes256-sha1;modp2048
-  keyingtries=%forever
-  keyexchange=ike
-  leftsubnet=192.168.0.0/16
-  rightsubnet=10.0.0.0/16
-  dpddelay=10
-  dpdtimeout=30
-  dpdaction=restart_by_peer
-  encapsulation=yes
+ conn Tunnel1
+   authby=secret
+   auto=start
+   left=%defaultroute
+   leftid=<Public IP of EC2-VPN>
+   right=<AWS VPN Public IP>
+   type=tunnel
+   ikelifetime=8h
+   keylife=1h
+   phase2alg=aes256-sha1;modp2048
+   ike=aes256-sha1;modp2048
+   keyingtries=%forever
+   keyexchange=ike
+   leftsubnet=192.168.0.0/16
+   rightsubnet=10.0.0.0/16
+   dpddelay=10
+   dpdtimeout=30
+   dpdaction=restart_by_peer
+   encapsulation=yes
 Create a new file at /etc/ipsec.d/aws.secrets (if it doesn't exist) and append the following line:
 
 bash
