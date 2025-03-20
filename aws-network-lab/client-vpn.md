@@ -9,7 +9,7 @@ Run the below commands from your workstation where you have AWS CLI installed (f
    ```bash
      cd easy-rsa/easyrsa3  
 3. Initialize PKI environment
-   ````bash
+   ```bash
       ./easyrsa init-pki  
 4. Create new Certification Authority (CA)
    ```bash
@@ -23,11 +23,11 @@ Run the below commands from your workstation where you have AWS CLI installed (f
    ```bash
     ./easyrsa build-client-full client1.domain.idi nopass  
 7.Copy server and client certificates and keys to one directory
-```bash
-  mkdir ~/demo  
-  cp pki/ca.crt ~/demo/  
-  cp pki/issued/server.crt ~/demo/  
-  cp pki/private/server.key ~/demo/  
-  cp pki/issued/client1.domain.idi.crt ~/demo/  
-  cp pki/private/client1.domain.idi.key ~/demo/  
-  cd ~/demo  
+   ```bash
+   mkdir ~/demo  
+   cp pki/ca.crt ~/demo/  
+   cp pki/issued/server.crt ~/demo/  
+   cp pki/private/server.key ~/demo/  
+   cp pki/issued/client1.domain.idi.crt ~/demo/  
+   cp pki/private/client1.domain.idi.key ~/demo/  
+   cd ~/demo  
