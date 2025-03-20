@@ -105,7 +105,11 @@ By Chetan Agrawal
   ```bash
    #include /etc/ipsec.d/*.conf
 ###9.Create a new file at /etc/ipsec.d/aws.conf (if it doesn't exist) and append the following configuration:
- ```bash
+- got to /etc/ipsec.d/aws.conf
+  ```bash
+   vim /etc/ipsec.d/aws.conf
+- and add these lines:
+  ```bash
   conn Tunnel1
     authby=secret
     auto=start
