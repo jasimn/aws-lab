@@ -106,30 +106,27 @@ By Chetan Agrawal
    #include /etc/ipsec.d/*.conf
 ###9.Create a new file at /etc/ipsec.d/aws.conf (if it doesn't exist) and append the following configuration:
  ```bash
-
- conn Tunnel1
-   authby=secret
-   auto=start
-   left=%defaultroute
-   leftid=<Public IP of EC2-VPN>
-   right=<AWS VPN Public IP>
-   type=tunnel
-   ikelifetime=8h
-   keylife=1h
-   phase2alg=aes256-sha1;modp2048
-   ike=aes256-sha1;modp2048
-   keyingtries=%forever
-   keyexchange=ike
-   leftsubnet=192.168.0.0/16
-   rightsubnet=10.0.0.0/16
-   dpddelay=10
-   dpdtimeout=30
-   dpdaction=restart_by_peer
-   encapsulation=yes
-Create a new file at /etc/ipsec.d/aws.secrets (if it doesn't exist) and append the following line:
-
-bash
-Copy
+  conn Tunnel1
+    authby=secret
+    auto=start
+    left=%defaultroute
+    leftid=<Public IP of EC2-VPN>
+    right=<AWS VPN Public IP>
+    type=tunnel
+    ikelifetime=8h
+    keylife=1h
+    phase2alg=aes256-sha1;modp2048
+    ike=aes256-sha1;modp2048
+    keyingtries=%forever
+    keyexchange=ike
+    leftsubnet=192.168.0.0/16
+    rightsubnet=10.0.0.0/16
+    dpddelay=10
+    dpdtimeout=30
+    dpdaction=restart_by_peer
+    encapsulation=yes
+###10.Create a new file at /etc/ipsec.d/aws.secrets (if it doesn't exist) and append the following line:
+```bash
 <Public IP of EC2-VPN> <AWS VPN Public IP>: PSK "<Pre-Shared Key>"
 Start the IPsec service:
 
