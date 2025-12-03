@@ -87,5 +87,5 @@ Choose:
 * Select: aws-resource-change-alerts
 * Create rule.
 ![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/new.png)  
-## now when we create an create/delete/stop an instance we will get an alert in email (jasimakhtar302@gmail.com)  
+## now when we  create/delete/stop an instance we will get an alert in email (jasimakhtar302@gmail.com)  
 
