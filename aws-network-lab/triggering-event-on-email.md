@@ -29,20 +29,20 @@ DeleteUser, etc.
 ![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/Screenshot%202025-12-03%20143947.png)
 ## Step 2 — Create SNS Topic for Email Alerts
 
-Go to Amazon SNS
+ 1. Go to Amazon SNS
 
-Click Topics → Create Topic
+2. Click Topics → Create Topic
 
-Type: Standard
+* Type: Standard
 
-Topic name: aws-resource-change-alerts
+* Topic name: aws-resource-change-alerts
 
-Create topic
+3.Create topic
 
-Click Create subscription
+3.Click Create subscription
 
-Protocol: Email
+* Protocol: Email
 
-Enter your email address
+* Enter your email address
 
-Confirm email (check inbox → Click "Confirm subscription")
+4.Confirm email (check inbox → Click "Confirm subscription")
