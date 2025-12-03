@@ -26,8 +26,8 @@ Select:
 * CreateUser
 
 DeleteUser, etc.
-
-Step 2 — Create SNS Topic for Email Alerts
+![My Screenshot](./assets/screenshot.png)
+## Step 2 — Create SNS Topic for Email Alerts
 
 Go to Amazon SNS
 
