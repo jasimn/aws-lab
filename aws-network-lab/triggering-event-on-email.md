@@ -46,3 +46,51 @@
 
 5.Confirm email (check inbox → Click "Confirm subscription")
 ![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/Screenshot%202025-03-10%20233201.png)
+------------------------------
+## Step 3 — Create EventBridge Rule (Triggers on CloudTrail Create/Delete)
+
+1.Go to Amazon EventBridge
+
+2.Click Rules 
+3.Create rule
+* Rule name: resource-create-delete-alerts
+
+3.go to  Event Pattern
+
+4. Choose:
+
+AWS events → CloudTrail → AWS API Call via CloudTrail
+
+Now select operations:
+
+Event type: AWS API Call via CloudTrail
+
+API call category: Write-only
+
+Or use Custom Pattern (Better)
+```bash
+{
+  "source": ["aws.*"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventName": [
+      {"prefix": "Create"},
+      {"prefix": "Run"},
+      {"prefix": "Put"},
+      {"prefix": "Delete"},
+      {"prefix": "Terminate"},
+      {"prefix": "Remove"}
+    ]
+  }
+}
+```
+Target
+
+Choose:
+
+SNS topic
+
+Select: aws-resource-change-alerts
+
+Create rule.
+
