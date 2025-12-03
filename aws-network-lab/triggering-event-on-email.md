@@ -52,6 +52,7 @@
 1.Go to Amazon EventBridge
 
 2.Click Rules 
+
 3.Create rule
 * Rule name: resource-create-delete-alerts
 
