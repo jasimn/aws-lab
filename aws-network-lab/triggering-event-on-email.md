@@ -7,15 +7,15 @@
 
 1.Go to AWS Console → CloudTrail
 
-2. Create a Trail (if not already created)
+2.Create a Trail (if not already created)
 
-Select:
+3.Select:
 - Management events → Read/Write: Write-only
 
 3.Save the trail.
 
 4.CloudTrail logs all API actions like:
- * RunInstances
+* RunInstances
 
 * CreateBucket
 
@@ -25,24 +25,24 @@ Select:
 
 * CreateUser
 
-DeleteUser, etc.
+* DeleteUser, etc.
 ![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/Screenshot%202025-12-03%20143947.png)
 ## Step 2 — Create SNS Topic for Email Alerts
 
  1. Go to Amazon SNS
 
-2. Click Topics → Create Topic
-
+2. Click Topics
+3. Create Topics
 * Type: Standard
 
 * Topic name: aws-resource-change-alerts
 
-3.Create topic
 
-3.Click Create subscription
+4.Click Create subscription
 
 * Protocol: Email
 
 * Enter your email address
 
-4.Confirm email (check inbox → Click "Confirm subscription")
+5.Confirm email (check inbox → Click "Confirm subscription")
+![My Screenshot]()
