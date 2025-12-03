@@ -55,19 +55,16 @@
 3.Create rule
 * Rule name: resource-create-delete-alerts
 
-3.go to  Event Pattern
+## Event Pattern
 
-4. Choose:
-
-AWS events → CloudTrail → AWS API Call via CloudTrail
-
+Choose:
+* AWS events → CloudTrail → AWS API Call via CloudTrail
 Now select operations:
+* Event type: AWS API Call via CloudTrail
 
-Event type: AWS API Call via CloudTrail
-
-API call category: Write-only
-
-Or use Custom Pattern (Better)
+* API call category: Write-only
+*
+ Or use Custom Pattern (Better)
 ```bash
 {
   "source": ["aws.*"],
@@ -84,13 +81,11 @@ Or use Custom Pattern (Better)
   }
 }
 ```
-Target
-
+## Target
 Choose:
-
-SNS topic
-
-Select: aws-resource-change-alerts
-
-Create rule.
+* SNS topic
+* Select: aws-resource-change-alerts
+* Create rule.
+![My Screenshot]()  
+## now when we create an create/delete/stop an instance we will get an alert in email (jasimakhtar302@gmail.com)  
 
