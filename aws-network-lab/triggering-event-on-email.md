@@ -26,7 +26,7 @@ Select:
 * CreateUser
 
 DeleteUser, etc.
-![My Screenshot](./assets/screenshot.png)
+![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/Screenshot%202025-12-03%20143947.png)
 ## Step 2 — Create SNS Topic for Email Alerts
 
 Go to Amazon SNS
