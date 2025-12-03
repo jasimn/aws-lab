@@ -5,27 +5,25 @@
 ✔ An AWS resource is deleted
 ## Step 1 — Enable CloudTrail (captures create/delete actions)
 
-Go to AWS Console → CloudTrail
+1.Go to AWS Console → CloudTrail
 
-Create a Trail (if not already created)
+2. Create a Trail (if not already created)
 
 Select:
+- Management events → Read/Write: Write-only
 
-Management events → Read/Write: Write-only
+3.Save the trail.
 
-Save the trail.
+4.CloudTrail logs all API actions like:
+ * RunInstances
 
-CloudTrail logs all API actions like:
+* CreateBucket
 
-RunInstances
+* TerminateInstances
 
-CreateBucket
+* DeleteBucket
 
-TerminateInstances
-
-DeleteBucket
-
-CreateUser
+* CreateUser
 
 DeleteUser, etc.
 
