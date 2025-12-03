@@ -9,7 +9,7 @@
 
 2.Create a Trail (if not already created)
 
-3.Select:
+# Select:
 - Management events → Read/Write: Write-only
 
 3.Save the trail.
@@ -86,6 +86,6 @@ Choose:
 * SNS topic
 * Select: aws-resource-change-alerts
 * Create rule.
-![My Screenshot]()  
+![My Screenshot](https://github.com/jasimn/aws-lab/blob/main/aws-network-lab/new.png)  
 ## now when we create an create/delete/stop an instance we will get an alert in email (jasimakhtar302@gmail.com)  
 
